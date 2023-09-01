@@ -12,13 +12,10 @@ También se manejará un detalle de cada pedido de cliente, donde se almacena el
     - Costo de Pedido
     - Costo de Envío
     - Anticipo de Pedido
-    - Tipo de Venta:
-        - Contado
-        - Crédito
-2. Detalle Pedido
-    - Tipo Pedido:
+    - Tipo:
         - Aereo
         - Marítimo
+2. Detalle Pedido
     - Cliente
     - Artículo
     - Color
@@ -26,15 +23,24 @@ También se manejará un detalle de cada pedido de cliente, donde se almacena el
     - Precio Artículo App
     - Cantidad
     - Precio Según Cantidad
-3. Cliente
+3. Seguimientos de Pagos
+    - Cliente
+    - Detalle Pedido
+    - Estado
+    - Fecha
+    - Pedido
+    - Envío
+    - Pagado
+    - Restante
+4. Cliente
     - Nombre
     - Estado
-4. Usuarios
+5. Usuarios
     - UID
     - Nombre
     - Correo Electrónico
     - Rol
-5. Roles:
+6. Roles:
     - Nombre
 
 
