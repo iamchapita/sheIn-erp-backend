@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('order_details', function (Blueprint $table) {
             $table->unsignedBigInteger('id', true);
-            $table->unsignedBigInteger('OrderIdFK')->comment('Hace referencia a la Orden');
+            $table->unsignedBigInteger('orderIdFK')->comment('Hace referencia a la Orden');
             $table->string('name', 50)->comment('Nombre del Artículo');
             $table->string('color', 25)->comment('Color del Artículo');
             $table->string('size', 25)->comment('Talla del Artículo');
