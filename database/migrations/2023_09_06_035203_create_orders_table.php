@@ -12,7 +12,15 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('orders', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id', true);
+            $table->unsignedBigInteger('customerIdFK')->comment('Hace Referencia al cliente');
+            $table->decimal('orderChargedToCustomer', 8, 2, true)->comment('Precio de Pedido, Calculado');
+            $table->decimal('shippingChargedToCustomer', 8, 2, true)->comment('Envío Cobrado al Cliente, Calculado');
+            $table->decimal('orderPrice', 8, 2, true)->comment('Precio del Pedido, Calculado');
+            $table->boolean('orderPlaced')->default(false)->comment('Se refiere a a si el pedido fué realizado o no');
+            $table->boolean('orderDelivered')->default(false)->comment('Se refiere a a si el pedido fué entregado o no');
+            $table->enum('saleType', ['Contado', 'Crédito'])->default('Contado')->comment('Se refiere al tipo de venta');
+            $table->boolean('wasAssigned')->default(false)->comment('Se refiere a si fue asignado a un lote o no');
             $table->timestamps();
         });
     }

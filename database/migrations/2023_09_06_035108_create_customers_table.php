@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('customers', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id', true);
+            $table->string('name', 50)->unique();
+            $table->boolean('status')->default(true)->comment('Controla si el cliente está activo o inactivo. Por Defecto es true');
             $table->timestamps();
         });
     }
