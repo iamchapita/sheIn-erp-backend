@@ -15,14 +15,14 @@ return new class extends Migration
             $table->unsignedBigInteger('id', true);
             $table->string('name', 50)->unique();
             $table->unsignedBigInteger('orderIdFK')->nullable()->comment('Llave foránea hacia el pedido');
-            $table->decimal('orderChargedToCustomer', 8, 2, true)->nullable()->comment('Cobrado al Cliente por Pedido, Calculado');
-            $table->decimal('paidForBatch', 8, 2, true)->nullable()->comment('Acumulados de pagado a SheIn por el Pedido');
-            $table->decimal('shippingChargedToCustomer', 8, 2, true)->nullable()->comment('Acumulados de cobrado al cliente por envío, Calculado');
-            $table->decimal('shippingPaid', 8, 2, true)->nullable()->comment('Acumulados de pagado a Empresa de envío');
-            $table->decimal('orderPrice', 8, 2, true)->nullable()->comment('Acumulados de precios de los Pedidos (Costo Pedido), Calculado');
+            $table->decimal('orderChargedToCustomer', 8, 2, true)->default(0)->comment('Cobrado al Cliente por Pedido, Calculado');
+            $table->decimal('paidForBatch', 8, 2, true)->default(0)->comment('Acumulados de pagado a SheIn por el Pedido');
+            $table->decimal('shippingChargedToCustomer', 8, 2, true)->default(0)->comment('Acumulados de cobrado al cliente por envío, Calculado');
+            $table->decimal('shippingPaid', 8, 2, true)->default(0)->comment('Acumulados de pagado a Empresa de envío');
+            $table->decimal('orderPrice', 8, 2, true)->default(0)->comment('Acumulados de precios de los Pedidos (Costo Pedido), Calculado');
             $table->enum('orderType', ['Aéreo', 'Marítimo', 'Aéreo Especial'])->default('Marítimo');
             $table->date('deliveryBatch')->comment('Fecha de entrega del lote');
-            $table->boolean('status')->default(true)->comment('Almacena el estado del pedido, si fue archivado o no.');
+            $table->boolean('status')->default(false)->comment('Almacena el estado del pedido, si fue archivado o no.');
             $table->timestamps();
         });
     }

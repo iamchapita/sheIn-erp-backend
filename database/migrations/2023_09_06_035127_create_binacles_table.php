@@ -12,7 +12,10 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('binacles', function (Blueprint $table) {
-            $table->id();
+            $table->unsignedBigInteger('id', true);
+            $table->string('actionOn')->comment('Nombre de la tabla donde se hizo la acción');
+            $table->string('actionType')->comment('Tipo de Accción que se hizo');
+            $table->string('user')->comment('Usuario que provocó la acción');
             $table->timestamps();
         });
     }
