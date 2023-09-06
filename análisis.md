@@ -43,5 +43,60 @@ También se manejará un detalle de cada pedido de cliente, donde se almacena el
 6. Roles:
     - Nombre
 
+## Tablas Y relaciones
+
+1. Cliente:
+	- Nombre
+	- Estado
+2. Lote:
+	- id
+	- Nombre
+	- idPedido
+	- Cobrado al Cliente (Calculado)
+	- Pagado por Lote
+	- Envío Cobrado al Cliente (Calculado)
+	- Envío pagado
+	- Precio pedidos (Calculado)
+	- Tipo Pedido:
+        - Aereo
+        - Marítimo
+	- Fecha de Llegada/Entrega
+	- Estado (Archivado)
+3. Pedido:
+	- id
+	- idCliente
+	- Precio Pedido (Calculado)
+	- Envió Cobrado al Cliente (Calculado)
+	- Total a Cobrar al Cliente(Calculado)
+	- Pedido Realizado
+	- Entregado
+	- Tipo Venta:
+		- Contado
+		- Cŕedito
+	- Asignado (Asignado a Lote, True o False)
+4. Detalle Pedido:
+	- id
+	- idPedido
+	- Nombre Artículo
+    - Color Artículo
+    - Talla Artículo
+    - Precio Unitario App 
+	- Envío Unitario Artículo
+    - Cantidad Artículo
+    - Total Artículo (Calculado)
+	- Cancelado (El cliente canceló el artículo, True o False)
+5. Seguimientos de Pagos:
+	- id
+	- idPedido
+	- Estado (Pendiente, Pagado)
+	- Anticipo
+	- Pagado
+	- Restante (Calculado)
+	- Fechas
+6. Bitácora
+	- id
+	- Acción Sobre
+	- Tipo Acción
+	- Usuario
 
 ## Entidad Relación (Primera Versión)
