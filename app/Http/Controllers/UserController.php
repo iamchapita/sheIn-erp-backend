@@ -93,18 +93,12 @@ class UserController extends Controller
         if (Auth::attempt($request->only('email', 'password'))) {
 
             $user = User::where('email', $request['email'])->firstOrFail();
-            $token = $user->createToken('auth_token')->plainTextToken;
+            $token = $user->createToken('auth_token', [$user->ability])->plainTextToken;
 
             return response()->json(
                 [
                     'access_token' => $token,
                     'token_type' => 'Bearer',
-                    'id' => $user->id,
-                    'isAdmin' => $user->isAdmin,
-                    'isClient' => $user->isClient,
-                    'isSeller' => $user->isSeller,
-                    'isBanned' => $user->isBanned,
-                    'isEnabled' => $user->isEnabled,
                 ],
                 200
             );
