@@ -73,9 +73,11 @@ class UserController extends Controller
                     'name' => $request->name,
                     'email' => $request->email,
                     'password' => Hash::make($request->password),
+                    // 'ability' => $request->ability,
                 ]);
 
-                $token = $user->createToken('auth_token', ['superAdmin'])->plainTextToken;
+                // $token = $user->createToken('auth_token', [$request->ability])->plainTextToken;
+                $token = $user->createToken('auth_token', ['noAbility'])->plainTextToken;
 
                 return response()->json([
                     'access_token' => $token,
