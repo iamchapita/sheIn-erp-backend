@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('email')->unique();
             $table->string('password');
+            $table->enum('ability', ['noAbility', 'superAdmin', 'admin', 'seller'])->default('noAbility');
             $table->rememberToken();
             $table->timestamps();
         });
